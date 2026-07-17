@@ -7,7 +7,7 @@ module fifo_mem#(parameter WIDTH=8,DEPTH=8,PTR_WIDTH=4)
    output reg [WIDTH-1:0] d_out
   );
   
-  reg [WIDTH-1:0] fifo [DEPTH];
+  reg [WIDTH-1:0] fifo [0:DEPTH-1];
   
   always@(posedge rclk) begin
     if(r_en & !empty) begin
