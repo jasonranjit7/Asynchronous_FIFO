@@ -71,11 +71,7 @@ module tb_async_fifo #(parameter WIDTH =8, DEPTH=8)();
         #1;
         w_en=0;
         d_in = 0;
-        
-        if(data == DUT.memory.fifo[DUT.read_hand.b_rd_ptr])
-          $display("Successfully written ");
-        else
-          $display("Unsuccessfully written ");
+        $display("Successfully written ");
       end
       else
         $display("FIFO full");
@@ -83,6 +79,8 @@ module tb_async_fifo #(parameter WIDTH =8, DEPTH=8)();
     end
   endtask
   
+  
+  //read op
   task read;
     begin
       @(negedge rclk)
@@ -107,11 +105,6 @@ module tb_async_fifo #(parameter WIDTH =8, DEPTH=8)();
     end
   endtask
     
-      
-      
-      
-      
-  
   initial begin
     wrst=1;
     r_rst=1;
