@@ -3,7 +3,6 @@
 `include "interface.sv"
 `include "monitor.sv"
 `include "scoreboard.sv"
-
 class environment #(parameter WIDTH = 8);
 
   generator  #(WIDTH) gen;
@@ -12,6 +11,7 @@ class environment #(parameter WIDTH = 8);
   scoreboard #(WIDTH) scb;
   
   virtual intf #(WIDTH) vif;
+  coverage cov;
   
   mailbox #(transaction #(WIDTH)) gen2drv;
   mailbox #(transaction #(WIDTH)) mon2scb;
@@ -21,10 +21,11 @@ class environment #(parameter WIDTH = 8);
     
     gen2drv = new();
     mon2scb = new();
+    cov = new();
     
     gen = new(gen2drv);
     drv = new(vif, gen2drv);
-    mon = new(vif, mon2scb);
+    mon = new(vif, mon2scb, cov);
     scb = new(mon2scb);
   endfunction
   
