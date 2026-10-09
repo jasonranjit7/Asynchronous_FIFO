@@ -21,7 +21,7 @@ asynchronous_fifo/
     │   ├── write_item.sv    
     │   └── read_item.sv    
     │    
-    ├── components/                        # Drivers, Monitors, Scoreboard, Env
+    ├── components/                        # Drivers, Monitors, Scoreboard,Env    
     │   ├── write_driver.sv    
     │   ├── write_monitor.sv    
     │   ├── write_agent.sv    
