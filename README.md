@@ -4,10 +4,10 @@
 
 asynchronous_fifo/
 
-├── README.md
-├── Makefile
-├── .gitignore
-│
+├── README.md 
+├── Makefile 
+├── .gitignore 
+│ 
 ├── rtl/                           # Design files
 │   ├── async_fifo.v
 │   └── fifo_top.v
